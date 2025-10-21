@@ -1,0 +1,42 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="512" height="512" rx="120" fill="#3b82f6"/>
+  
+  <!-- Calendar base -->
+  <rect x="80" y="120" width="352" height="320" rx="20" fill="white"/>
+  
+  <!-- Calendar header -->
+  <rect x="80" y="120" width="352" height="80" rx="20" fill="#2563eb"/>
+  
+  <!-- Calendar rings -->
+  <rect x="160" y="80" width="40" height="60" rx="20" fill="#1e40af"/>
+  <rect x="312" y="80" width="40" height="60" rx="20" fill="#1e40af"/>
+  
+  <!-- Calendar grid lines -->
+  <line x1="80" y1="200" x2="432" y2="200" stroke="#e5e7eb" stroke-width="2"/>
+  <line x1="80" y1="280" x2="432" y2="280" stroke="#e5e7eb" stroke-width="2"/>
+  <line x1="80" y1="360" x2="432" y2="360" stroke="#e5e7eb" stroke-width="2"/>
+  
+  <line x1="190" y1="200" x2="190" y2="440" stroke="#e5e7eb" stroke-width="2"/>
+  <line x1="300" y1="200" x2="300" y2="440" stroke="#e5e7eb" stroke-width="2"/>
+  
+  <!-- Task checkboxes -->
+  <rect x="100" y="220" width="16" height="16" rx="3" fill="#10b981"/>
+  <rect x="100" y="300" width="16" height="16" rx="3" fill="#10b981"/>
+  <rect x="100" y="380" width="16" height="16" rx="3" fill="#ef4444"/>
+  
+  <!-- Task lines -->
+  <line x1="125" y1="228" x2="170" y2="228" stroke="#6b7280" stroke-width="3" stroke-linecap="round"/>
+  <line x1="125" y1="308" x2="160" y2="308" stroke="#6b7280" stroke-width="3" stroke-linecap="round"/>
+  <line x1="125" y1="388" x2="165" y2="388" stroke="#6b7280" stroke-width="3" stroke-linecap="round"/>
+  
+  <!-- Checkmarks -->
+  <path d="M104 227 L108 231 L116 223" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M104 307 L108 311 L116 303" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Week highlight -->
+  <rect x="210" y="220" width="200" height="60" rx="10" fill="#fef3c7" opacity="0.8"/>
+  
+  <!-- Week text -->
+  <text x="310" y="255" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#92400e">WEEK</text>
+</svg>

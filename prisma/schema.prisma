@@ -1,0 +1,62 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id               String   @id @default(cuid())
+  googleId         String   @unique
+  email            String   @unique
+  name             String
+  themePreference  String   @default("light") // "light" | "dark"
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  
+  // Relations
+  tasks            Task[]
+  ideas            Idea[]
+}
+
+model Task {
+  id          String   @id @default(cuid())
+  content     String
+  comment     String?  // Optional comment/description
+  dueDate     String   // YYYY-MM-DD format
+  endDate     String?  // For multi-day tasks YYYY-MM-DD format
+  isCompleted Boolean  @default(false)
+  category    String   @default("general") // "work" | "personal" | "shopping" | "health" | "general"
+  priority    String   @default("medium") // "low" | "medium" | "high" | "urgent"
+  color       String   @default("#3B82F6") // Hex color code
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relations
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Idea {
+  id        String   @id @default(cuid())
+  title     String   @default("Без названия")
+  content   String
+  category  String   @default("general") // "work" | "personal" | "shopping" | "health" | "general" | "creative" | "business" | "learning"
+  priority  String   @default("medium") // "low" | "medium" | "high" | "urgent"
+  color     String   @default("#F59E0B") // Hex color code
+  tags      String   @default("") // JSON string array of tags
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  // Relations
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
